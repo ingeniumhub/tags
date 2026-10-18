@@ -1,7 +1,5 @@
 # tags
 
-## De qué va
-
 Un robot necesita saber dónde están las cosas y dónde está él: la estación de carga, la pieza que va a tomar, la pared del pasillo. Una cámara es el sensor más barato para eso, pero entrega píxeles, no metros. Y lo que hay en una escena normal (esquinas de muebles, texturas, sombras) se parece demasiado entre sí y cambia con la luz: el robot ve algo, pero no sabe qué es ni a qué distancia está.
 
 Los marcadores fiduciales existen para resolver exactamente eso. Son patrones diseñados para que una cámara los encuentre sin dudar, sepa cuál es cada uno y pueda medirlos. Un AprilTag o un ArUco es un cuadrado blanco y negro con una rejilla de bits adentro: el borde negro se detecta de lejos y en ángulo, los bits dicen el ID, y las cuatro esquinas, junto con el tamaño real del cuadrado y la calibración de la cámara, dan la posición y la orientación del marcador en 3D. AprilTag nació en 2011 en la Universidad de Michigan; ArUco, en 2014 en la Universidad de Córdoba. Los dos son abiertos y los dos están en OpenCV.
