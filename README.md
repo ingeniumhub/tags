@@ -8,9 +8,14 @@ La explicación completa, con diagramas, las estrategias de colocación y los ca
 
 ## Qué hay aquí
 
-Una librería en Python y C++ sobre OpenCV que detecta uno o varios marcadores, estima su pose con su incertidumbre y la entrega en el marco que el robot necesita. Escrita para reutilizarse tal cual en otro proyecto.
+Nada que inventar: la detección ya la hacen OpenCV y la librería AprilTag, y en ROS 2 ya existen `apriltag_ros`, tf2, Nav2 y MoveIt. Lo que no existe es el ejemplo completo y armado, que se pueda correr tal cual y repetir en un robot de verdad. Eso es este repo:
 
-Y ejemplos que siguen el mismo orden en que se aprende, cada uno apoyado en el anterior:
+- **Scripts con OpenCV**, en Python, para ver y medir sin ROS: detectar, estimar la pose, dibujarla, comparar con la regla.
+- **Un paquete de ROS 2** con los launch que conectan cámara, detector, tf2 y lo que consume la pose (el docking de Nav2, el planificador del brazo).
+- **Mundos de simulación** con los marcadores ya puestos, a su tamaño, para probar sin hardware.
+- **Lo necesario para repetirlo en un robot real**: qué imprimir, dónde pegarlo, cómo calibrar y qué medir para saber que funciona.
+
+Los ejemplos siguen el orden en que se aprende, cada uno apoyado en el anterior:
 
 1. **Un marcador y su pose.** Detectar, estimar la pose y dibujarla sobre la imagen. Ver qué pasa al alejarse, al girarlo y al declarar mal el tamaño.
 2. **Calibrar la cámara.** Con un tablero ChArUco, y comprobar que la distancia medida coincide con la regla.
@@ -19,7 +24,7 @@ Y ejemplos que siguen el mismo orden en que se aprende, cada uno apoyado en el a
 5. **La cámara en el brazo.** Calibración mano-ojo y tomar una pieza con un marcador en ella.
 6. **Un reto.** Un recorrido de marcador en marcador sin tocar nada.
 
-Cada ejemplo se puede correr solo con la librería, dentro de ROS 2, y en simulación o en un robot real. Y cada uno mide su error, no solo "funciona".
+Cada ejemplo dice qué mide y cuánto error da, no solo que "funciona".
 
 ## Estado
 
