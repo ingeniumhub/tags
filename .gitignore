@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# C++ / CMake
+build/
+cmake-build-*/
+
+# ROS 2
+ros2/build/
+ros2/install/
+ros2/log/
+
+# Simulación y datos pesados (se enlazan o se descargan, no se versionan)
+*.bag
+*.mcap
+*.mp4
+*.zip
+
+# Editores y sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
