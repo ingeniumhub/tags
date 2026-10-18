@@ -8,23 +8,25 @@ La explicación completa, con diagramas, las estrategias de colocación y los ca
 
 ## Qué hay aquí
 
-Nada que inventar: la detección ya la hacen OpenCV y la librería AprilTag, y en ROS 2 ya existen `apriltag_ros`, tf2, Nav2 y MoveIt. Lo que no existe es el ejemplo completo y armado, que se pueda correr tal cual y repetir en un robot de verdad. Eso es este repo:
+Nada que inventar: los detectores ya existen y son buenos. Lo que falta es saber cuál usar en cada caso, con qué parámetros, y cómo se conecta con el resto del robot. Eso es este repo: una guía de los detectores que vale la pena usar, probados con la misma cámara y el mismo marcador, y ejemplos completos armados con el mejor para cada caso.
 
-- **Scripts con OpenCV**, en Python, para ver y medir sin ROS: detectar, estimar la pose, dibujarla, comparar con la regla.
-- **Un paquete de ROS 2** con los launch que conectan cámara, detector, tf2 y lo que consume la pose (el docking de Nav2, el planificador del brazo).
-- **Mundos de simulación** con los marcadores ya puestos, a su tamaño, para probar sin hardware.
-- **Lo necesario para repetirlo en un robot real**: qué imprimir, dónde pegarlo, cómo calibrar y qué medir para saber que funciona.
+**Los detectores**, documentados uno por uno (instalar, configurar, qué devuelve, dónde falla) y medidos con la misma prueba (cuadros por segundo, distancia máxima, error contra la regla, comportamiento en ángulo):
 
-Los ejemplos siguen el orden en que se aprende, cada uno apoyado en el anterior:
+- **OpenCV** (`cv2.aruco`): ArUco y los diccionarios AprilTag, en Python y C++, sin instalar nada más. Para empezar, para scripts y para cualquier PC.
+- **AprilTag 3** (la librería de Michigan, en C): la referencia en precisión y velocidad en CPU; en ROS 2 vive como `apriltag_ros`. Para el robot de producción sin GPU.
+- **Isaac ROS AprilTag** (NVIDIA): la detección en GPU, para Jetson y robots con cámara a alta resolución o varias cámaras. Qué gana, qué cuesta y sus límites (hoy solo 36h11 en CUDA).
+- Y los que resuelven algo que los anteriores no: **TagSLAM** (construir el mapa de marcadores en vez de medirlo) y los marcadores **fractales** de ArUco (ver de lejos y de cerca con el mismo marcador).
 
-1. **Un marcador y su pose.** Detectar, estimar la pose y dibujarla sobre la imagen. Ver qué pasa al alejarse, al girarlo y al declarar mal el tamaño.
+**Los ejemplos**, en el orden en que se aprende, cada uno con sus scripts, su paquete de ROS 2, un mundo de simulación con los marcadores ya puestos, y lo necesario para repetirlo en un robot real:
+
+1. **Un marcador y su pose.** Detectar, estimar la pose y dibujarla. Ver qué pasa al alejarse, al girarlo y al declarar mal el tamaño.
 2. **Calibrar la cámara.** Con un tablero ChArUco, y comprobar que la distancia medida coincide con la regla.
 3. **Ir hacia un marcador.** Girar hasta tenerlo al centro, avanzar hasta la distancia deseada, acoplarse en una orientación concreta.
-4. **Varios marcadores en un cuarto.** Que el robot sepa dónde está con cualquiera que vea, y que la pose no salte cuando cambia el marcador visible.
+4. **Varios marcadores en un cuarto.** Que el robot sepa dónde está con cualquiera que vea, sin saltos al cambiar el marcador visible.
 5. **La cámara en el brazo.** Calibración mano-ojo y tomar una pieza con un marcador en ella.
 6. **Un reto.** Un recorrido de marcador en marcador sin tocar nada.
 
-Cada ejemplo dice qué mide y cuánto error da, no solo que "funciona".
+Cada ejemplo dice qué detector usa y por qué, qué mide y cuánto error da.
 
 ## Estado
 
