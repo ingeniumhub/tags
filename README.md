@@ -8,4 +8,4 @@ En construcción. Todavía no hay código publicado.
 
 ## Licencia
 
-Código bajo MIT. Marcadores y textos bajo CC BY 4.0.
+MIT
