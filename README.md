@@ -4,7 +4,7 @@ Ejemplos y simulaciones de marcadores fiduciales (AprilTag y ArUco) en robots, c
 
 ## Estado
 
-En construcción. Todavía no hay código publicado.
+En construcción.
 
 ## Licencia
 
