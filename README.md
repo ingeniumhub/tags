@@ -1,6 +1,6 @@
 # tags
 
-Ejemplos y simulaciones de marcadores fiduciales (AprilTag y ArUco) en robots, con OpenCV y ROS 2.
+Ejemplos y simulaciones de proyectos AprilTag y ArUco en robotica, con OpenCV y ROS 2.
 
 ## Estado
 
